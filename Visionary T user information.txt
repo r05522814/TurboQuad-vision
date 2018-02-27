@@ -1,0 +1,7 @@
+Visionary T user information
+
+User level:Authorized Client
+password:CLIENT
+
+User level:Service
+password:CUST_SERVE

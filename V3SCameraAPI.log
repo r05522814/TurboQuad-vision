@@ -1,0 +1,126 @@
+十二月 21, 2017 7:44:11 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+十二月 21, 2017 7:44:13 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+十二月 21, 2017 7:44:15 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now offline.
+十二月 21, 2017 7:44:15 下午 de.sick.svs.api.internal.connection.SCLConnection connect
+嚴重: Could not connect: connect timed out
+十二月 21, 2017 7:44:54 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+十二月 21, 2017 7:44:54 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now online.
+十二月 21, 2017 7:44:55 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now offline.
+十二月 21, 2017 7:44:55 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+十二月 21, 2017 7:44:55 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now online.
+十二月 21, 2017 7:44:55 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now offline.
+十二月 21, 2017 7:44:55 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+十二月 21, 2017 7:44:55 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now online.
+十二月 21, 2017 7:44:55 下午 de.sick.svs.api.internal.connection.SCLConnection$2 getDescription
+資訊: Loading device decriptiosn from the xml file:C:\Users\IPLEV\Documents\MATLAB\SICK Visionary T\..\java\resources\V3SCameraEt.cid.processed.xml
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Creating blob listener.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.connection.SVSBlobListener <init>
+資訊: BlobListener has been created.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Creating heart beat listener.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Initializing blob client.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Connecting blob client.
+十二月 21, 2017 7:46:09 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Adding heart beat listener.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Adding blob listener.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.blobformat.BlobDataAG parse
+資訊: Could not retrieve DataSetPolar2D from XML metadata.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.blobformat.BlobDataAG parse
+資訊: Could not retrieve DataSetCartesian from XML metadata.
+十二月 21, 2017 7:46:09 下午 de.sick.svs.api.internal.blobformat.BlobDataAG handleDataSetDepthMap
+資訊: The data stream contains the following components: [de.sick.svs.api.internal.blobformat.DataComponent@781b955f, de.sick.svs.api.internal.blobformat.DataComponent@5aebcd93, de.sick.svs.api.internal.blobformat.DataComponent@2f059c87]
+十二月 21, 2017 7:46:12 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:15 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:18 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:21 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:22 下午 de.sick.svs.api.internal.Device triggerSingleImageAcquisition
+警告: Image acquisition is active. Stop before triggering.
+十二月 21, 2017 7:46:24 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:27 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:30 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:33 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:36 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:39 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:42 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:45 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:48 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:51 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:54 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:46:57 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:00 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:03 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:06 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:09 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:12 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:15 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:18 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:21 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:24 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:27 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:30 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:32 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now offline.
+十二月 21, 2017 7:47:33 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:36 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:39 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:42 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:45 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:48 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:51 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:54 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+十二月 21, 2017 7:47:57 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent

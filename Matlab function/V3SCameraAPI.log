@@ -1,0 +1,56 @@
+二月 27, 2018 9:45:09 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+二月 27, 2018 9:45:09 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now online.
+二月 27, 2018 9:45:09 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now offline.
+二月 27, 2018 9:45:09 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+二月 27, 2018 9:45:09 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now online.
+二月 27, 2018 9:45:09 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now offline.
+二月 27, 2018 9:45:09 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+二月 27, 2018 9:45:09 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now online.
+二月 27, 2018 9:45:09 下午 de.sick.svs.api.internal.connection.SCLConnection$2 getDescription
+資訊: Loading device decriptiosn from the xml file:C:\Users\IPLEV\Documents\MATLAB\SICK Visionary T\Matlab function\..\java\resources\V3SCameraEt.cid.processed.xml
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Creating blob listener.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.connection.SVSBlobListener <init>
+資訊: BlobListener has been created.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Creating heart beat listener.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Initializing blob client.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Connecting blob client.
+二月 27, 2018 9:45:10 下午 de.sick.sopas.communication.cola.TCPConnection createSocket
+資訊: Using non secured TCP connection
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Adding heart beat listener.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.DataReceiver startListening
+資訊: Adding blob listener.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.Device triggerSingleImageAcquisition
+資訊: Triggered a single image.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.blobformat.BlobDataAG parse
+資訊: Could not retrieve DataSetPolar2D from XML metadata.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.blobformat.BlobDataAG parse
+資訊: Could not retrieve DataSetCartesian from XML metadata.
+二月 27, 2018 9:45:10 下午 de.sick.svs.api.internal.blobformat.BlobDataAG handleDataSetDepthMap
+資訊: The data stream contains the following components: [de.sick.svs.api.internal.blobformat.DataComponent@4c5932d1, de.sick.svs.api.internal.blobformat.DataComponent@74175e7f, de.sick.svs.api.internal.blobformat.DataComponent@2a3d1f64]
+二月 27, 2018 9:45:13 下午 de.sick.svs.api.internal.connection.SVSHeartBeatListener heartBeatSent
+資訊: HeartBeat sent
+二月 27, 2018 9:45:15 下午 de.sick.svs.api.internal.DataReceiver stopListening
+資訊: Removing blob listener.
+二月 27, 2018 9:45:15 下午 de.sick.svs.api.internal.DataReceiver stopListening
+資訊: Removing heart beat listener.
+二月 27, 2018 9:45:15 下午 de.sick.svs.api.internal.DataReceiver stopListening
+資訊: Terminating blob client.
+二月 27, 2018 9:45:15 下午 de.sick.svs.api.internal.DataReceiver stopListening
+資訊: Stopped listening.
+二月 27, 2018 9:45:18 下午 de.sick.svs.api.internal.connection.SCLConnection$StateChangeListener connectionStateChanged
+資訊: Device is now offline.
