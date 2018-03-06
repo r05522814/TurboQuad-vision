@@ -66,11 +66,22 @@ depth_data = importdata('dataoutput.mat');
 points = depth_data.points;
 maps = depth_data.maps;
 
+%%
+R = 10000;
+
+C = 10000*10^(-12)
 
 
+f = 1/(2*pi*R*C)
+%%
+a = [1 2 3];
+a_i = find(a<3 )
+
+b = [1 2 3 4];
+b_i = find(b<4)
 
 
-
+a_i
 
 
 

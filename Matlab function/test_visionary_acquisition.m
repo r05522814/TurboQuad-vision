@@ -28,10 +28,17 @@
 % Copyright note: Redistribution and use in source, with or without modification, are permitted.
 
 %------------- BEGIN CODE --------------
-
 clf; clear variables; close all; clc;
-enable_show_one_data = 1;
-confidence_threshold = 0.03;
+clear java;
+javarmpath('../java/lib/V3SCameraAPI.jar');
+
+% Parameter settings
+enable_continuous_acquiring = 0; % switch to 1 to continuously acquiring data points
+enable_show_one_data = 0; % switch to 1 to show only distance map
+intensity_threshold = 0.01; %0.01 , data points in intensity map below the value are deleted 
+confidence_threshold = 0.05; %0.05 , data points in confidence map below the value are deleted 
+pitch_angle = -30; % define horizontal as zero, +:up, -:down 
+flip_camera = 1; % if flip camera upside-down, switch to 1
 
 %% --------- Settings --------
 % import the jar
@@ -108,6 +115,8 @@ disp 'Listening for data has been started'
 % as the data acquisition has been stopped trigger a single image
 myDevice.triggerSingleImageAcquisition();
 dataReceived = 0;
+
+
 while(dataReceived == 0)
     pause(0.05) % waiting until the data is transferred
     % Note that usually 50 milliseconds is a good waiting time, 
@@ -124,92 +133,114 @@ cameraParams = myData.getCameraParameters();
 numRows = cameraParams.getNumberOfRows();
 numCols = cameraParams.getNumberOfColumns();
 
+depthMapData = myData.getDepthMapData();
+
 disp 'Size information obtained'
 
 %% --------- Demo viewer settings --------
-% variable settings for this demo viewer; adjust for better visualization
-dlims = [0 7500]; % appropriate limits for distance
-ilims = [0 3000]; % resp. intensity
-clims = [0 65000]; % resp. confidence
-selectedImage = 1; %1 = distance, 2 = intensity, 3 = confidence 
 
-switch selectedImage
-case 1 
-    disp 'Distance image has been selected'
-case 2
-    disp 'Intensity image has been selected'
-case 3
-    disp 'Confidence image has been selected'
-end
-
-% --------- Restart continuous image acquisition --------
-if (~myDevice.isImageAcquisitionStarted())
-    myDevice.startImageAcquisition();
-end
-if (~myDataReceiver.isListening())
-    myDataReceiver.startListening();
-end
-
-disp 'Close figure window to stop live view'
-
-% create figure for live view
-h = figure;
-% while figure is open
-while ishandle(h)
-    % read currently obtained blob
-    myData = myTestListener.getData();
-    %if (myData.getAvailableDataChannels())
-    depthMapData = myData.getDepthMapData();
+% Continuous acquiring
+if enable_continuous_acquiring == 1
     
-    if enable_show_one_data == 1
-        % Show only one data
-        % selected data
-        switch selectedImage
-            case 1 % get distances            
-                buffer = depthMapData.getDistanceData();
-                lims = dlims;
-            case 2 % get intensities
-                buffer = depthMapData.getIntensityData();
-                lims = ilims;
-            case 3 % get confidence
-                buffer = depthMapData.getConfidenceData();            
-                lims = clims;                                                             
-        end
-        % convert buffer into matlab matrix
-        map = getMapFromBuffer(buffer,numRows,numCols);
+    % variable settings for this demo viewer; adjust for better visualization
+    dlims = [0 4000]; % appropriate limits for distance % [0 7500]
+    ilims = [0 3000]; % resp. intensity
+    clims = [0 65000]; % resp. confidence
+    selectedImage = 1; %1 = distance, 2 = intensity, 3 = confidence 
 
-        % draw the data
-        imagesc(map,lims);
-        title('Live view of selected map')
-        axis off
-        drawnow
-
-    else
-        % Show all  data
-        % get map
-        distanceMap = double(getMapFromBuffer(depthMapData.getDistanceData(),numRows,numCols));
-        intensityMap = double(getMapFromBuffer(depthMapData.getIntensityData(),numRows,numCols));
-        confidenceMap = double(getMapFromBuffer(depthMapData.getConfidenceData(),numRows,numCols));
-        
-        subplot(2,2,1);
-        imagesc(distanceMap,dlims);
-        title('Distance');
-        axis off;
-        subplot(2,2,2);
-        imagesc(intensityMap,ilims);
-        title('Intensity');
-        axis off;
-        subplot(2,2,3);
-        imagesc(confidenceMap,clims);
-        title('Confidence');
-        axis off;
-        
-        drawnow
-
+    switch selectedImage
+    case 1 
+        disp 'Distance image has been selected'
+    case 2
+        disp 'Intensity image has been selected'
+    case 3
+        disp 'Confidence image has been selected'
     end
+
+    % --------- Restart continuous image acquisition --------
+    if (~myDevice.isImageAcquisitionStarted())
+        myDevice.startImageAcquisition();
+    end
+    if (~myDataReceiver.isListening())
+        myDataReceiver.startListening();
+    end
+
+    disp 'Close figure window to stop live view'
+
+    % create figure for live view
+    h = figure;
+    % while figure is open
+    while ishandle(h)
+        % read currently obtained blob
+        myData = myTestListener.getData();
+        %if (myData.getAvailableDataChannels())
+        depthMapData = myData.getDepthMapData();
+
+        if enable_show_one_data == 1
+            % Show only one data
+            % selected data
+            switch selectedImage
+                case 1 % get distances            
+                    buffer = depthMapData.getDistanceData();
+                    lims = dlims;
+                case 2 % get intensities
+                    buffer = depthMapData.getIntensityData();
+                    lims = ilims;
+                case 3 % get confidence
+                    buffer = depthMapData.getConfidenceData();            
+                    lims = clims;                                                             
+            end
+            % convert buffer into matlab matrix
+            map = getMapFromBuffer(buffer,numRows,numCols);
+
+            % draw the data
+            if flip_camera == 1
+                map = flip(map,1);
+            end
+            imagesc(map,lims);
+            title('Live view of selected map')
+            axis off
+            drawnow
+
+        else
+            % Show all  data
+            % get map
+            distanceMap = double(getMapFromBuffer(depthMapData.getDistanceData(),numRows,numCols));
+            intensityMap = double(getMapFromBuffer(depthMapData.getIntensityData(),numRows,numCols));
+            confidenceMap = double(getMapFromBuffer(depthMapData.getConfidenceData(),numRows,numCols));
+            if flip_camera == 1
+                distanceMap = flip(distanceMap,1);
+                intensityMap = flip(intensityMap,1);
+                confidenceMap = flip(confidenceMap,1);
+            end
+            subplot(2,2,1);
+            imagesc(distanceMap,dlims);
+            title('Distance');
+    %         colorbar;
+            axis off;
+            subplot(2,2,2);
+            imagesc(intensityMap,ilims);
+            title('Intensity');
+    %         colorbar;
+            axis off;
+            subplot(2,2,3);
+            imagesc(confidenceMap,clims);
+            title('Confidence');
+    %         colorbar;
+            axis off;
+
+            drawnow
+
+        end
+    end
+
 end
+
+
 % stop the data reception
-myDataReceiver.stopListening();
+if (myDataReceiver.isListening())
+    myDataReceiver.stopListening();
+end
 
 %% --------- Point cloud transformation --------
 % take the last data received and transform the contained distance map to a 
@@ -231,30 +262,43 @@ distanceMap(distanceMap > 7500) = 0;
 
 
 % rotate wrt x-axis, and then rotate wrt z-axis (euler angle)
-% the first is the pit
-Rotation_bodyWRTworld = rotx(-30) * rotx(-90) * rotz(-90);
-% Rotation_bodyWRTworld = eye(3);
+% the first is the pitch
+if flip_camera == 1
+    Rotation_bodyWRTworld = rotx(-pitch_angle) * rotx(90) * rotz(90);
+
+% Rotation_bodyWRTworld = eye(3); % Identity matrix
+else
+    Rotation_bodyWRTworld = rotx(-30) * rotx(-90) * rotz(-90);
+end
 
 pointCloud_worldframe = Rotation_bodyWRTworld \ pointCloud_bodyframe';
 pointCloud_worldframe = pointCloud_worldframe';
 
 % filter out invalid pixels according to confidence map
-confidence_array = reshape(intensityMap, 1,[]);
+intensity_array = reshape(intensityMap, 1,[]);
+confidence_array = reshape(confidenceMap, 1,[]);
 % (1,1) -> (2,1) -> ... -> (144,1) -> (1,2) -> (2,2) -> ... -> (176,1)...
 % the same arrangment as points cloud
 
 % normalize confidence to [0,1]
+intensity_array = mat2gray(intensity_array);
 confidence_array = mat2gray(confidence_array);
-filtered_index = find(confidence_array < confidence_threshold);
+
+intensity_filtered_index = find(intensity_array < intensity_threshold);
+confidence_filtered_index = find(confidence_array < confidence_threshold);
+ 
+filtered_index = union(intensity_filtered_index,confidence_filtered_index);
+
+pointCloud_worldframe_trim = pointCloud_worldframe;
 filtered_points = pointCloud_worldframe(filtered_index,:);
-pointCloud_worldframe(filtered_index,:) = 0;
+pointCloud_worldframe_trim(filtered_index,:) = 0;
 try
 fscatter3(filtered_points(:,1), filtered_points(:,2),...
      filtered_points(:,3), filtered_points(:,3), gray); 
 catch
 end
-fscatter3(pointCloud_worldframe(:,1), pointCloud_worldframe(:,2),...
-     pointCloud_worldframe(:,3), pointCloud_worldframe(:,3), jet); 
+fscatter3(pointCloud_worldframe_trim(:,1), pointCloud_worldframe_trim(:,2),...
+     pointCloud_worldframe_trim(:,3), pointCloud_worldframe_trim(:,3), jet); 
 % along z axis, colormap using jet colormap distribution 
 
 
@@ -284,4 +328,4 @@ disp 'Disconnected successfully'
 
 %% -------- Clean dynamic classpath ----------
 % clear java;
-javarmpath('../java/lib/V3SCameraAPI.jar');
+% javarmpath('../java/lib/V3SCameraAPI.jar');
