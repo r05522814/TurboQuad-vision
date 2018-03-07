@@ -75,15 +75,17 @@ C = 10000*10^(-12)
 f = 1/(2*pi*R*C)
 %%
 a = [1 2 3];
-a_i = find(a<3 )
+max(a)
 
-b = [1 2 3 4];
-b_i = find(b<4)
-
-
-a_i
-
-
+%%
+I = imread('file01.png');
+I2 = flipdim(I ,2);           %# horizontal flip
+I3 = flipdim(I ,1);           %# vertical flip
+I4 = flipdim(I3,2);    %# horizontal+vertical flip
+subplot(2,2,1), imshow(I)
+subplot(2,2,2), imshow(I2)
+subplot(2,2,3), imshow(I3)
+subplot(2,2,4), imshow(I4)
 
 
 
