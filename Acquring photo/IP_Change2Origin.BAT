@@ -1,1 +1,1 @@
-netsh interface ipv4 Set Address "無線網路連線" DHCP
+netsh interface ipv4 Set Address "Wi-Fi 3" DHCP

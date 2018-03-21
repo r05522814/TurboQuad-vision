@@ -25,6 +25,8 @@ end
 preview_img = preview(cam);
 % cam.AvailableResolutions
 
+
+
 %% Dealing with folder path
 % folder_path ='../MATLAB/Acquiring_photo';
 currentfolder = pwd;
