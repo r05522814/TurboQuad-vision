@@ -1,7 +1,7 @@
 %% 
 %  This code is used to take different categories of pictires 
 %  and save to differnet folders for later training usage  
-%  version 2017/12/03
+%  version 2019/07/17
 
 clear('cam');
 clear variables; clc;
@@ -19,7 +19,7 @@ switch select_camera
         
     
     case 2  % IP webcam
-        URL = 'http://169.254.171.242/cgi-bin/stream.cgi?type=jpeg&mode=live&session_id=0&fps=100&stream=0&prio=high&token=3012-00&frame=1.mjpg';
+        URL = 'http://169.254.88.7/cgi-bin/stream.cgi?type=jpeg&mode=live&session_id=0&fps=100&stream=0&prio=high&token=805-00&frame=1.mjpg';
         cam = ipcam(URL);
 end
 preview_img = preview(cam);
@@ -30,7 +30,7 @@ preview_img = preview(cam);
 %% Dealing with folder path
 % folder_path ='../MATLAB/Acquiring_photo';
 currentfolder = pwd;
-folder_path = fullfile(currentfolder, 'test_photo');
+folder_path = fullfile(currentfolder, 'validate_photo_night_20190925');
 
 % Check if the folder is exist
 if (~isdir(folder_path))  
@@ -45,8 +45,9 @@ end
 keyboardinput = 1; % initilization
 
 prompt = ['Select the category\n'...
-          '1:Asphalt 2:Floor 3:Grass 4:Gravel 5:Stairs \n'...
-          'z or x:Exit\n'];
+          '1:Asphalt 2:Pavement 3:Grass 4:Dirt\n'...
+          '5:Gravel  6:Step  7:Stairs 8:Others\n'...
+          'z or x : Exit\n'];
 
 while(keyboardinput ~= 'z'  || ishandle(preview_img))
 
@@ -58,7 +59,7 @@ while(keyboardinput ~= 'z'  || ishandle(preview_img))
             image_folder_path = fullfile(folder_path,'Asphalt');
             
         case '2'
-            fprintf('Floor selected\n\n');
+            fprintf('Pavement selected\n\n');
             image_category = 'Pavement ';
             image_folder_path = fullfile(folder_path,'Pavement');
             
@@ -66,24 +67,30 @@ while(keyboardinput ~= 'z'  || ishandle(preview_img))
             fprintf('Grass selected\n\n');
             image_category = 'Grass ';
             image_folder_path = fullfile(folder_path,'Grass');
+                        
+        case '4'
+            fprintf('Dirt selected\n\n');
+            image_category = 'Dirt ';
+            image_folder_path = fullfile(folder_path,'Dirt');
 
             
-        case '4'
+        case '5'
             fprintf('Gravel selected\n\n');
             image_category = 'Gravel ';
             image_folder_path = fullfile(folder_path,'Gravel');
 
             
-        case '5'
+        case '6'
             fprintf('Step selected\n\n');
             image_category = 'Step ';
             image_folder_path = fullfile(folder_path,'Step');
             
-        case '6'
+        case '7'
             fprintf('Stairs selected\n\n');
             image_category = 'Stairs ';
             image_folder_path = fullfile(folder_path,'Stairs');
-        case '7'
+            
+        case '8'
             fprintf('Others selected\n\n');
             image_category = 'Others ';
             image_folder_path = fullfile(folder_path,'Others');
@@ -130,7 +137,7 @@ while(keyboardinput ~= 'z'  || ishandle(preview_img))
         pic_num_png = numel( dir([image_folder_path '/*.png']) );
         pic_num = pic_num_jpg + pic_num_png;
         
-        title_str = [image_category, num2str(pic_num + 1),' '];
+        title_str = [image_category, char(datestr(now,'mmdd-HHMMSS')),'-',  num2str(pic_num + 1),' '];
         title(sprintf([title_str,char(datetime)]));
 
         disp(title_str); % show on command window
